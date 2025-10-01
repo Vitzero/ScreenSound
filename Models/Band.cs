@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace ScreenSound.Models
 {
-    internal class Band
+    internal class Band : IEvaluate
     {
+        public string Name { get; }
+        
         private List<Album> albuns = new List<Album>();
+
         private List<Review> grades = new List<Review>();
 
-        public Band(string nome)
-        {
-            Name = nome;
-        }
-
-        public string Name { get; }
         public double Average
         {
             get
@@ -25,8 +22,13 @@ namespace ScreenSound.Models
                 else return grades.Average(a => a.Grade);
             }
         }
+        public Band(string nome)
+        {
+            Name = nome;
+        }
 
-        public List<Album> Albuns => albuns;
+        public IEnumerable<Album> Albuns => albuns;
+
 
         public void AddAlbum(Album album)
         {

@@ -18,7 +18,7 @@ namespace ScreenSound.Models
         public Band Artist { get; }
         public int Duration { get; set; }
         public bool Available { get; set; }
-        public string Descrition => $"A música {Name} pertence à banda {Artist}";
+        public string Descrition => $"The song {Name} belongs to {Artist}";
 
         public void ExibirFichaTecnica()
         {
